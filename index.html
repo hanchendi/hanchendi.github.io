@@ -1,114 +1,95 @@
 <!DOCTYPE html>
-<!--
-    Plain-Academic by Vasilios Mavroudis
-    Released under the Simplified BSD License/FreeBSD (2-clause) License.
-    https://github.com/mavroudisv/plain-academic
--->
-
 <html lang="en">
 <head>
-  <title>John Doe</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+<title>Chendi's Homepage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./format/w3.css">
+<link rel="stylesheet" href="./format/css.css?family=Lato">
+<link rel="stylesheet" href="./format/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
 </head>
+
 <body>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="Publications.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Publications</a>
+    <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Projects</a>
+    <a href="Photos.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Photos</a>
+  </div>
+</div>
 
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="index.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Home</a>
+  <a href="Publications.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Publications</a>
+  <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Projects</a>
+  <a href="Photos.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Photos</a>
+</div>
 
-<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-				  <li><a href="index.html">Home</a></li>
-				  <li><a href="#">Projects</a></li>
-				  <li><a href="#publications">Publications</a></li> 
-				  <li><a href="#">CV</a></li> 
-		  </ul>
-		</div>
-	  </div>
-	</nav>
+  <!-- The Band Section -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+  <h2 class="w3-wide">Home page</h2>
+</div>
   
-  <!-- Page Content -->
-    <div class="container">
+<!-- End Page Content -->
+</div>
 
-        <div class="row">
+<!-- Image of location/map -->
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
 
-            <!-- Entries Column -->
-            <div class="col-md-8" style="height: 100vh;">
-                
-                <!-- Main Image -->
-                <img class="img-responsive" src="photo.gif" alt=""><br>
-                
-                <div style="margin-top:3%; text-align:justify;">                
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					
-					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-					
-					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                  <p> <a href="contact.html">Contact me</a>  </p>
-                </div>
-            </div> 
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
 
-            <!-- Contact Info on the Sidebar -->
-            <div class="col-md-4">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 32px;"><b>John Doe</b></div><br>
-                <p><b>john at doe.com</b><br>
-                <p>Random Department<br>
-                University of Randomness<br>
-                Street<br>
-                City <br>
-                Country<br>
-                </p>
-            </div>
-            
-            
-            <!-- Links on the Sidebar -->
-            <div class="col-md-4" style="margin-top:2%">
-              <dd><a href="#">Google Scholar</a></dd> 
-              <dd><a href="#">Twitter</a></dd>
-              <dd><a href="#">LinkedIn</a></dd>
-            </div>
-            
-            
-            <!-- Publications -->
-            <div class="col-md-8" style="height: 100vh;">    
-                <h2 id="publications">Publications</h2>
-                
-                <strong>Peer-reviewed</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a> Names of the authors</li>
-                </ul>
-            
-                <strong>Technical Reports</strong><br/>
-                <ul>
-                <li class="paper" words="add, your, keywords, here"><a href="#">Full title</a>. Details of the report</li>
-                </ul>
-            </div>
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
 
-            
-        </div>
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 4000);    
+}
 
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
 
-    </div>
-    <!-- /.container -->
-    
-    <!-- Other people may like it too! -->
-    <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
-    
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
 </body>
-
 </html>
