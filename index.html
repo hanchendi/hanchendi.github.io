@@ -7,9 +7,25 @@
 <link rel="stylesheet" href="./format/w3.css">
 <link rel="stylesheet" href="./format/css.css?family=Lato">
 <link rel="stylesheet" href="./format/font-awesome.min.css">
+<link rel="stylesheet" href="./format/bootstrap.min.css">
+<script src="./format/jquery.min.js"></script>
+<script src="./format/bootstrap.min.js"></script>
+<link href='./format/css2?family=Oswald:700' rel='stylesheet' type='text/css'>
 <style>
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
+.p1 {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.p2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.p3 {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
 </style>
 </head>
 
@@ -20,8 +36,7 @@ body {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a href="Publications.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Publications</a>
-    <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Projects</a>
-    <a href="Photos.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Photos</a>
+    <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Projects and Presentations</a>
   </div>
 </div>
 
@@ -29,30 +44,81 @@ body {font-family: "Lato", sans-serif}
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="index.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Home</a>
   <a href="Publications.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Publications</a>
-  <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Projects</a>
-  <a href="Photos.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Photos</a>
+  <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Projects and Presentations</a>
 </div>
 
-  <!-- The Band Section -->
-<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-  <h2 class="w3-wide">Home page</h2>
+  <!-- The Self Section -->
+<div class="w3-container w3-content w3-padding-64" style="max-width:1000px">
+
+  <div class="col-sm-3">
+    <img class="img-responsive" src="./picture/main/self_2022.jpg" alt=""><br>
+    <div style="font-size: 24px;"><b>Chendi Han, PhD</b></div><br>
+    <p><b>MRI Research Engineer</b><br>
+    <p>Cleveland Clinic<br>
+    Lou Ruvo Center for Brain Health<br>
+    888 W Bonneville Ave<br>
+    Las Vegas, Nevada, USA <br>
+    <a href="./file/other/CV_Chendi Han.pdf">My Resume</a><br>
+    </p>
+  </div>
+
+  <div class="col-sm-1">
+  </div>
+
+  <div class="col-sm-8">
+    <div style="font-size: 24px;"><p class="p1"><br /><b>About:</b></p></div>
+    <div style="font-size: 18px;">
+      <p class="p1">Chendi Han received BS degree in Physics from <a class="p1" href="https://cycollege.lzu.edu.cn/">Cuiying Honors College</a>, <a class="p1" href="https://www.lzu.edu.cn/"><b>Lanzhou University</b></a> in 2017. 
+        He started his research in Quantum chaos in Professor <a class="p1" href="https://icpcs.lzu.edu.cn/lhuang/indexE.html"><i>Liang Huang</i></a>'s group. He received his MS and PhD degrees in 
+        Electrical Engineering from <a class="p1" href="https://ecee.engineering.asu.edu/">School of Electrical, Computer and Energy Engineering</a>, 
+        <a class="p1" href="https://www.asu.edu/"><b>Arizona State University</b></a> in 2019 and 2022 respectively. He wrote his PhD thesis on Graphene, Quantum chaos and Machine learning under Professor <a class="p1" href="http://chaos1.la.asu.edu/~yclai/"><i>Ying-Cheng Lai</i></a>.
+        In 2023, he joined <a class="p1" href="https://my.clevelandclinic.org/"><b>Cleveland Clinic</b></a> as a MRI research engineer. His current research interests are <b>fMRI data analysis</b>, 
+        <b>Optimization</b>, <b>Machine learning</b>, 
+        and <b>Clinical application to Alzheimer's and Parkinson's</b>. He published more than 10 papers in peer-reviewed journals.
+    </p>
+    </div>
+
+    <div style="font-size: 24px;"><p class="p1"><br /><b>Education:</b></p></div>
+      <div style="font-size: 18px;">
+        <p class="p1"> 09/2013 - 06/2017: &nbsp BS, Physics, Lanzhou University</p>
+        <p class="p1"> 08/2017 - 12/2019: &nbsp MS, Electrical Engineering, Arizona State University</p>
+        <p class="p1"> 04/2018 - 12/2023: &nbsp PhD, Electrical Engineering, Arizona State University</p>
+    </div>
+    <div style="font-size: 24px;"><p class="p1"><br /><b>Academic Positions:</b></p></div>
+      <div style="font-size: 18px;">
+        <p class="p1"> 07/2017 - 12/2022: &nbsp Research Assistant, Arizona State University</p>
+        <p class="p1"> 07/2023 - Present: &nbsp MRI Research Engineer, Cleveland Clinic</p>
+    </div>
+
+    <div style="font-size: 24px;"><p class="p1"><br /><b>Awards:</b></p></div>
+      <div style="font-size: 18px;">
+        <p class="p1"> 2017: &nbsp  Outstanding Graduate Student for 2017, Lanzhou University</p>
+        <p class="p1"> 2022: &nbsp  Dean's Dissertation Award for 2022, Arizona State University</p>
+      </div>
+
+      <div style="font-size: 24px;"><p class="p1"><br /><b>Academic Service:</b></p></div>
+      <div style="font-size: 18px;">
+        <p class="p1">Referee of <u>Physical Review E</u> (<b>PRE</b>), <u>Journal of Magnetic Resonance Imaging</u> (<b>JMRI</b>) and <u>Medical Image Computing and Computer Assisted Intervention</u> (<b>MICCAI</b>). </p>
+    </div>
+
+  </div>
+
 </div>
   
 <!-- End Page Content -->
 </div>
 
-<!-- Image of location/map -->
-<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
-
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+<footer class="w3-container w3-padding-64 w3-center w3-light-grey w3-xlarge">
+  <a href="https://scholar.google.com/citations?user=zkBPa6AAAAAJ&hl=en" target="_blank" style="text-decoration:none">
+    <img src="./picture/main/google-scholar-logo.png" width="40" height="40">
+  </a>
+  <a href="https://www.linkedin.com/in/chendi-han-5498b1201/" target="_blank" style="text-decoration:none">
+    <img src="./picture/main/LinkedIn-logo.png" width="40" height="40">
+  </a>
+  <a href="https://github.com/hanchendi" target="_blank" style="text-decoration:none">
+    <img src="./picture/main/Github-logo.png" width="40" height="40">
+  </a>
 </footer>
 
 <script>
