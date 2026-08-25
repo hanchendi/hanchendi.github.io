@@ -1,154 +1,873 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Chendi's Homepage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./format/w3.css">
-<link rel="stylesheet" href="./format/css.css?family=Lato">
-<link rel="stylesheet" href="./format/font-awesome.min.css">
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-.p1 {
-  font-family: "Times New Roman", Times, serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research projects by Chendi Han">
+  <title>Projects | Chendi Han</title>
 
-.p2 {
-  font-family: Arial, Helvetica, sans-serif;
-}
+  <style>
+    :root {
+      --page-width: 1080px;
+      --text: #222;
+      --muted: #666;
+      --border: #e5e5e5;
+      --link: #1f5f99;
+      --background: #ffffff;
+      --footer: #f7f7f7;
+    }
 
-.p3 {
-  font-family: "Lucida Console", "Courier New", monospace;
-}
-</style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      min-height: 64px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .site-name {
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .site-name:hover { text-decoration: none; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+
+    .nav-links a { color: #333; }
+    .nav-links a.active { color: #000; font-weight: 700; }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* Main page */
+    main {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 58px 28px 52px;
+    }
+
+    .page-title {
+      margin: 0 0 34px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    /* One project */
+    .project {
+      margin-bottom: 56px;
+      padding-bottom: 42px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project:last-child {
+      border-bottom: 0;
+    }
+
+    /*
+      Top row:
+      | Project name | spacer | Time |
+    */
+    .project-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 30px;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+
+    .project-name {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      line-height: 1.3;
+    }
+
+    .project-time {
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    /*
+      Second row:
+      | image | description |
+    */
+    .project-body {
+      display: grid;
+      grid-template-columns: 38% minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .project-image {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 10px;
+    }
+
+    .project-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .project-description p {
+      margin: 0 0 14px;
+    }
+
+    .project-description p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Selected publications / outputs */
+    .project-outputs {
+      margin-top: 24px;
+    }
+
+    .project-outputs h3 {
+      margin: 0 0 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+    }
+
+    .project-outputs ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .project-outputs li {
+      margin: 0 0 8px;
+      padding-left: 3px;
+    }
+
+    .output-links {
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--footer);
+    }
+
+    .footer-inner {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 34px 28px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-link img {
+      max-width: 34px;
+      max-height: 34px;
+      display: block;
+    }
+
+    @media (max-width: 760px) {
+      body { font-size: 17px; }
+
+      .nav-wrap {
+        min-height: 58px;
+        padding: 0 20px;
+        position: relative;
+      }
+
+      .menu-button { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 58px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 14px 20px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 13px;
+      }
+
+      .nav-links.open { display: flex; }
+
+      main { padding: 42px 20px 36px; }
+      .page-title { font-size: 30px; }
+
+      .project-header {
+        gap: 12px;
+      }
+
+      .project-name {
+        font-size: 22px;
+      }
+
+      .project-time {
+        font-size: 17px;
+      }
+
+      .project-body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-image {
+        max-width: 520px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-header {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .project-time {
+        white-space: normal;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
-    <a href="Publications.html" class="w3-bar-item w3-button w3-padding-large">Publications</a>
-    <a href="Conferences.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Conferences</a>
-    <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Projects</a>
-    <div class="w3-dropdown-hover w3-hide-large w3-hide-medium">
-      <button class="w3-padding-large w3-button" title="More">More</button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="Conferences.html" class="w3-bar-item w3-button">Conferences</a>
-        <a href="Projects.html" class="w3-bar-item w3-button">Projects</a>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="site-name" href="index.html">Chendi Han</a>
+
+      <button class="menu-button" id="menuButton"
+              aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="Publications.html">Publications</a>
+        <a href="Conferences.html">Conferences</a>
+        <a class="active" href="Projects.html">Projects</a>
+        <a href="Personal.html">Personal</a>
+        <a href="Others.html">Others</a>
       </div>
-    </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Projects</h1>
+
+    <!-- =========================================================
+         PROJECT TEMPLATE
+         Copy the entire <article class="project">...</article>
+         block for each new project.
+         ========================================================= -->
+<article class="project">
+
+  <div class="project-header">
+
+    <h2 class="project-name">
+      Hidden Markov Models for fMRI Brain Dynamics
+    </h2>
+
+    <div class="project-time">2024–Present</div>
+
   </div>
-</div>
-  
-    <!-- The Band Section -->
-  <div class="w3-container w3-content w3-padding-64" style="max-width:1000px" id="band">
 
-    <!-- PHD -->
-    <div>
-      <p class="p1" style="font-size: 22px;"> 
-        <b>PhD</b>:
-      </p>
-      <p class="p1" style="font-size: 18px;"> 
-        <b>PhD Qualify</b>:
-        ``Decay of semiclassical massless Dirac fermions from integrable and chaotic cavities,'' 
-        <a class="p1" href="./file/project/2019_PhD.pdf" target="_blank">PDF</a><a class="p1">. </a>
-      </p>
-      <p class="p1" style="font-size: 18px;"> 
-        <b>PhD Defense</b>:
-        ``Exploiting Machine Learning for Quantum Chaos and Quantum Information,'' 
-        <a class="p1" href="./file/project/2022_PhD.pdf" target="_blank">PDF</a><a class="p1">. </a>
-      </p>
+
+  <div class="project-body">
+
+    <div class="project-image">
+
+      <img src="./picture/project/6_hmm.png"
+           alt="Hidden Markov models for fMRI brain dynamics">
+
     </div>
 
-    <!-- Kaggle -->
-    <div>
-      <p class="p1" style="font-size: 22px;"> 
-        <b>Kaggle Competition</b>:
-      </p>
-      <p class="p1" style="font-size: 18px;"> 
-        In 2022, I participated in a Kaggle competition to predict stock market rank (price change rate rank) 
-        using a graph neural network. Our team ranked 130th out of 2,033 participants. For more detailed method description, 
-        please see the attached file.
-      </p>
-      <p class="p1" style="font-size: 18px;"> 
-        ``GNN based knowledge-driven prediction for Japanese stock market,'' 
-        <a class="p1" href="./file/project/2022_Kaggle.pdf" target="_blank">PDF</a><a class="p1">. </a>
-        <b>Rank: 130/2033.</b>
-        <img src="./picture/projects/2022_Kaggle_1.png" width="600" height="300">
-        <img src="./picture/projects/2022_Kaggle_2.jpg" width="200" height="300">
-      </p>
-    </div>
 
-    <!-- LeetCode -->
-    <div>
-      <p class="p1" style="font-size: 22px;"> 
-        <b>LeetCode Competition</b>:
+    <div class="project-description">
+
+      <p>
+        This project applies Hidden Markov Models (HMMs) to fMRI for
+        studying time-varying brain activity and functional connectivity.
+        HMMs provide a probabilistic framework for identifying recurring
+        brain states and characterizing how the brain transitions between
+        different patterns of activity over time.
       </p>
-      <p class="p1" style="font-size: 18px;"> 
-        I am proficient in coding. In a 2021 LeetCode competition, I ranked 14th out of 7,505 participants worldwide 
-        (excluding China), which is the highest rank I have ever achieved. For more details, you can visit my LeetCode profile.
+
+      <p>
+        Our work uses HMM-based analysis across resting-state and task
+        fMRI to investigate brain dynamics and their relationships with
+        neurological and cognitive processes.
       </p>
-      <p class="p1" style="font-size: 18px;"> 
-        <a class="p1" href="https://leetcode.com/u/hanchendi123/" target="_blank">LeetCode Profile</a>
-      </p>
-      <img src="./picture/projects/2021_LeetCode.jpg" width="300" height="600">
+
     </div>
 
   </div>
-    
-  <!-- End Page Content -->
+
+</article>
+
+<article class="project">
+
+  <!-- | Project name | Time | -->
+  <div class="project-header">
+
+    <h2 class="project-name">
+      Nonlinear KCCA for fMRI Activation Detection
+    </h2>
+
+    <div class="project-time">2025–2026</div>
+
   </div>
-  
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-light-grey w3-xlarge">
-  <a href="https://scholar.google.com/citations?user=zkBPa6AAAAAJ&hl=en" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/google-scholar-logo.png" width="40" height="40">
-  </a>
-  <a href="https://www.linkedin.com/in/chendi-han-5498b1201/" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/LinkedIn-logo.png" width="40" height="40">
-  </a>
-  <a href="https://github.com/hanchendi" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/Github-logo.png" width="40" height="40">
-  </a>
-</footer>
-  
+
+
+  <!-- | Image | Description | -->
+  <div class="project-body">
+
+    <div class="project-image">
+
+      <img src="./picture/project/5_nonlinear_KCCA.png"
+           alt="Nonlinear KCCA for fMRI activation detection">
+
+    </div>
+
+
+    <div class="project-description">
+
+      <p>
+        This project develops nonlinear Kernel Canonical Correlation
+        Analysis (KCCA) for task-fMRI activation detection. By extending
+        conventional linear KCCA to nonlinear kernel spaces, the method
+        captures more complex relationships between fMRI signals and
+        task-related neural responses while retaining efficient
+        whole-brain activation analysis.
+      </p>
+
+      <p>
+        We further developed self-supervised optimization for parameter
+        selection and robust back-reconstruction methods for mapping
+        nonlinear representations back to voxel-level activation patterns.
+        Together with systematic kernel selection, these developments
+        improve activation accuracy and robustness across simulated and
+        real task-fMRI datasets.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- | Selected Publications | -->
+  <div class="project-outputs">
+
+    <h3>Selected Publications</h3>
+
+    <ul>
+
+      <li>
+        <b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes,
+        “Nonlinear kernel-based fMRI activation detection,”
+        <i>Frontiers in Neuroimaging</i> <b>4</b>, 1649749 (2025).
+
+        <span class="output-links">
+          <a href="https://www.frontiersin.org/journals/neuroimaging/articles/10.3389/fnimg.2025.1649749/full"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2025_16_Frontier.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+
+      <li>
+        <b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes,
+        “Nonlinear KCCA in fMRI activation analysis: Self-supervised optimization and robust back-reconstruction,”
+        <i>Imaging Neuroscience</i> <b>4</b>, IMAG.a.1243 (2026).
+
+        <span class="output-links">
+          <a href="https://direct.mit.edu/imag/article/doi/10.1162/IMAG.a.1243/136500"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2026_17.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+    </ul>
+
+  </div>
+
+</article>
+
+<article class="project">
+
+  <!-- | Project name | Time | -->
+  <div class="project-header">
+
+    <h2 class="project-name">
+      Meta-Learning for Data-Efficient Scientific Applications
+    </h2>
+
+    <div class="project-time">2023</div>
+
+  </div>
+
+
+  <!-- | Image | Description | -->
+  <div class="project-body">
+
+    <div class="project-image">
+
+      <img src="./picture/project/4_meta.png"
+           alt="Meta-learning-based quantum scar detection">
+
+    </div>
+
+
+    <div class="project-description">
+
+      <p>
+        This project explores meta-learning for scientific applications
+        where labeled data are extremely limited. Optimization-based
+        meta-learning uses a nested learning process to identify neural
+        networks that can rapidly adapt to new tasks from only a few
+        examples.
+      </p>
+
+      <p>
+        We applied this idea to quantum scar detection, where distinct
+        scarring states are rare and conventional deep learning is limited
+        by the lack of training data. By combining meta-learning and
+        few-shot classification, we developed a fully automated detector
+        that can identify quantum scars from thousands of wave functions
+        using only a few labeled examples, demonstrating the potential of
+        meta-learning for data-limited detection problems across science
+        and engineering.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- | Selected Publications | -->
+  <div class="project-outputs">
+
+    <h3>Selected Publications</h3>
+
+    <ul>
+
+      <li>
+        <b>Chen-Di Han</b>, Cheng-Zhen Wang, and Ying-Cheng Lai,
+        “Meta-Machine-Learning-Based Quantum Scar Detector,”
+        <i>Physical Review Applied</i> <b>19</b>, 064042 (2023).
+
+        <span class="output-links">
+          <a href="https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.19.064042"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2023_12_PRA.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+    </ul>
+
+  </div>
+
+</article>
+
+<article class="project">
+
+  <!-- | Project name | Time | -->
+  <div class="project-header">
+
+    <h2 class="project-name">
+      Deep-Learning-Based Device Design
+    </h2>
+
+    <div class="project-time">2022–2024</div>
+
+  </div>
+
+
+  <!-- | Image | Description | -->
+  <div class="project-body">
+
+    <div class="project-image">
+
+      <img src="./picture/project/3_inverse_design.png"
+           alt="Deep-learning-based inverse design of graphene electronic devices">
+
+    </div>
+
+
+    <div class="project-description">
+
+      <p>
+        This project develops deep-learning-based inverse-design methods
+        for electronic devices, replacing computationally expensive
+        physics solvers with neural networks and directly optimizing
+        device configurations for desired physical responses.
+      </p>
+
+      <p>
+        We first applied this approach to graphene quantum dots to design
+        gate-potential configurations for extreme quantum scattering,
+        including cloaking and superscattering. We further developed
+        deep-learning-designed graphene electronic metasurfaces for
+        controlling Dirac electron waves, enabling applications such as
+        electron holography, wavefront engineering, and multifunctional
+        electronic devices.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- | Selected Publications | -->
+  <div class="project-outputs">
+
+    <h3>Selected Publications</h3>
+
+    <ul>
+
+      <li>
+        <b>Chen-Di Han</b> and Ying-Cheng Lai,
+        “Generating extreme quantum scattering in graphene with machine learning,”
+        <i>Physical Review B</i> <b>106</b>, 214307 (2022).
+
+        <span class="output-links">
+          <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.214307"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2022_11_PRB.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+
+      <li>
+        <b>Chen-Di Han</b>, Li-Li Ye, Zin Lin, Vassilios Kovanis, and Ying-Cheng Lai,
+        “Deep-learning design of electronic metasurfaces in graphene for quantum control and Dirac electron holography,”
+        <i>APL Machine Learning</i> <b>2</b>, 036105 (2024).
+
+        <span class="output-links">
+          <a href="https://pubs.aip.org/aip/aml/article/2/3/036105/3307404/Deep-learning-design-of-electronic-metasurfaces-in"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2024_15_APL.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+    </ul>
+
+  </div>
+
+</article>
+
+<article class="project">
+
+  <!-- | Project name | Time | -->
+  <div class="project-header">
+
+    <h2 class="project-name">
+      Physics-Enhanced Machine Learning
+    </h2>
+
+    <div class="project-time">2020–2021</div>
+
+  </div>
+
+
+  <!-- | Image | Description | -->
+  <div class="project-body">
+
+    <div class="project-image">
+
+      <img src="./picture/project/2_physics_ml.png"
+           alt="Physics-enhanced neural networks for dynamical systems">
+
+    </div>
+
+
+    <div class="project-description">
+
+      <p>
+        This project develops physics-enhanced neural networks that
+        incorporate governing physical laws directly into model learning.
+        We introduced two physics-driven neural-network frameworks for
+        learning classical and quantum dynamical systems from limited data.
+      </p>
+
+      <p>
+        The first, an adaptable Hamiltonian neural network, incorporates
+        Hamilton's equations and system parameters to predict nonlinear
+        dynamics across unseen parameter regimes, including transitions
+        to chaos. The second, a Heisenberg neural network, incorporates
+        the Heisenberg equation of motion to reconstruct time-dependent
+        quantum Hamiltonians and their interaction structures from sparse
+        local measurements.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- | Selected Publications | -->
+  <div class="project-outputs">
+
+    <h3>Selected Publications</h3>
+
+    <ul>
+
+      <li>
+        <b>Chen-Di Han</b>, Bryan Glaz, Mulugeta Haile, and Ying-Cheng Lai,
+        “Adaptable Hamiltonian neural networks,”
+        <i>Physical Review Research</i> <b>3</b>, 023156 (2021).
+
+        <span class="output-links">
+          <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.023156"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2021_7_PRR.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+
+      <li>
+        <b>Chen-Di Han</b>, Bryan Glaz, Mulugeta Haile, and Ying-Cheng Lai,
+        “Tomography of time-dependent quantum Hamiltonians with machine learning,”
+        <i>Physical Review A</i> <b>104</b>, 062404 (2021).
+
+        <span class="output-links">
+          <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.104.062404"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2021_8_PRA.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+    </ul>
+
+  </div>
+
+</article>
+
+<article class="project">
+
+  <!-- | Project name | Time | -->
+  <div class="project-header">
+
+    <h2 class="project-name">
+      Electronic and Optical Properties of Pseudospin-1 Systems
+    </h2>
+
+    <div class="project-time">2017–2019</div>
+
+  </div>
+
+
+  <!-- | Image | Description | -->
+  <div class="project-body">
+
+    <div class="project-image">
+
+      <img src="./picture/project/1_spin1.png"
+           alt="Electronic and optical properties of pseudospin-1 systems">
+
+    </div>
+
+
+    <div class="project-description">
+
+      <p>
+        This project investigates electronic and optical phenomena in
+        two-dimensional pseudospin-1 Dirac systems, whose energy bands
+        consist of two Dirac cones intersected by a flat band. We studied
+        how this unique band structure modifies Coulomb-impurity physics,
+        electronic transport, and optical response.
+      </p>
+
+      <p>
+        A central contribution was, to our knowledge, the first analytical
+        treatment of atomic collapse in pseudospin-1 systems and the
+        derivation of a complete analytical expression for the optical
+        conductivity of flat-band Dirac materials. These results reveal
+        distinctive flat-band effects, including singular conductivity,
+        unusual interband transitions, and resonant optical scattering.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- | Selected Publications | -->
+  <div class="project-outputs">
+
+    <h3>Selected Publications</h3>
+
+    <ul>
+
+      <li>
+        <b>Chen-Di Han</b>, Hong-Ya Xu, Dan-Hong Huang, and Ying-Cheng Lai,
+        “Atomic collapse in pseudospin-1 systems,”
+        <i>Physical Review B</i> <b>99</b>, 245413 (2019).
+
+        <span class="output-links">
+          <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.99.245413"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2019_3_PRB.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+
+      <li>
+        <b>Chen-Di Han</b> and Ying-Cheng Lai,
+        “Optical response of two-dimensional Dirac materials with a flat band,”
+        <i>Physical Review B</i> <b>105</b>, 155405 (2022).
+
+        <span class="output-links">
+          <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.105.155405"
+             rel="noopener" target="_blank">Paper Link</a> ·
+          <a href="./file/publication/2022_9_PRB.pdf"
+             rel="noopener" target="_blank">PDF</a>
+        </span>
+      </li>
+
+    </ul>
+
+  </div>
+
+</article>
+
+
+    <!-- =========================================================
+         COPY THIS BLOCK FOR ANOTHER PROJECT
+
+    <article class="project">
+      <div class="project-header">
+        <h2 class="project-name">Project Name</h2>
+        <div class="project-time">2025–Present</div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-image">
+          <img src="./picture/project/project-image.svg" alt="Project image">
+        </div>
+
+        <div class="project-description">
+          <p>
+            Project description goes here.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-outputs">
+        <h3>Selected Publications</h3>
+        <ul>
+          <li>
+            Publication information.
+            <a href="#">Paper</a>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+         ========================================================= -->
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="social-link"
+         href="https://scholar.google.com/citations?user=zkBPa6AAAAAJ&hl=en"
+         target="_blank" rel="noopener" aria-label="Google Scholar">
+        <img src="./picture/main/google-scholar-logo.png" alt="Google Scholar">
+      </a>
+
+      <a class="social-link"
+         href="https://www.linkedin.com/in/chendi-han-5498b1201/"
+         target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="./picture/main/LinkedIn-logo.png" alt="LinkedIn">
+      </a>
+
+      <a class="social-link"
+         href="https://github.com/hanchendi"
+         target="_blank" rel="noopener" aria-label="GitHub">
+        <img src="./picture/main/Github-logo.png" alt="GitHub">
+      </a>
+    </div>
+  </footer>
+
   <script>
-  // Automatic Slideshow - change image every 4 seconds
-  var myIndex = 0;
-  carousel();
-  
-  function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 4000);    
-  }
-  
-  // Used to toggle the menu on small screens when clicking on the menu button
-  function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-      x.className += " w3-show";
-    } else { 
-      x.className = x.className.replace(" w3-show", "");
-    }
-  }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  var modal = document.getElementById('ticketModal');
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
   </script>
-  
-  </body>
-  </html>
+</body>
+</html>

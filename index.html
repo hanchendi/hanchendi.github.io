@@ -1,189 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Chendi's Homepage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./format/w3.css">
-<link rel="stylesheet" href="./format/css.css?family=Lato">
-<link rel="stylesheet" href="./format/font-awesome.min.css">
-<link rel="stylesheet" href="./format/bootstrap.min.css">
-<script src="./format/jquery.min.js"></script>
-<script src="./format/bootstrap.min.js"></script>
-<link href='./format/css2?family=Oswald:700' rel='stylesheet' type='text/css'>
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
-.p1 {
-  font-family: "Times New Roman", Times, serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chendi Han - MRI Research Engineer, Cleveland Clinic">
+  <title>Chendi Han</title>
 
-.p2 {
-  font-family: Arial, Helvetica, sans-serif;
-}
+  <style>
+    :root {
+      --page-width: 1080px;
+      --text: #222;
+      --muted: #666;
+      --border: #e5e5e5;
+      --link: #1f5f99;
+      --nav: #ffffff;
+      --background: #ffffff;
+      --footer: #f7f7f7;
+    }
 
-.p3 {
-  font-family: "Lucida Console", "Courier New", monospace;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-</style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       Navigation
+       ========================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      min-height: 64px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .site-name {
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .site-name:hover {
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+
+    .nav-links a {
+      color: #333;
+    }
+
+    .nav-links a.active {
+      color: #000;
+      font-weight: 700;
+    }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 4px 0 4px 12px;
+    }
+
+    /* =========================
+       Main page
+       ========================= */
+    main {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 64px 28px 48px;
+    }
+
+    /* Home profile: | photo | biography | */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 62px;
+      align-items: start;
+      margin-bottom: 54px;
+    }
+
+    .profile-card {
+      text-align: center;
+    }
+
+    .profile-photo {
+      width: 100%;
+      max-width: 245px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+      margin: 0 auto 18px;
+    }
+
+    .profile-name {
+      margin: 0 0 4px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .profile-title,
+    .profile-affiliation,
+    .profile-location {
+      margin: 3px 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .profile-title {
+      font-weight: 700;
+    }
+
+    .profile-location {
+      color: var(--muted);
+    }
+
+    .profile-links {
+      margin-top: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+
+    .bio h1 {
+      margin: -4px 0 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    .bio p {
+      margin: 0 0 17px;
+    }
+
+    .research-interests {
+      margin-top: 27px;
+    }
+
+    .research-interests p {
+      margin: 8px 0 0;
+    }
+
+    /* full-width content below profile */
+    .section {
+      width: 100%;
+      padding: 26px 0 22px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 155px minmax(0, 1fr);
+      column-gap: 26px;
+      row-gap: 12px;
+    }
+
+    .timeline .date {
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.55;
+      padding-top: 0;
+      white-space: nowrap;
+    }
+
+    .timeline .entry {
+      margin: 0;
+    }
+
+    .grant-item,
+    .service-item {
+      margin: 0 0 14px;
+    }
+
+    .award-note {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .service-heading {
+      margin: 0 0 8px;
+    }
+
+    .service-list {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .service-list li {
+      margin: 4px 0;
+    }
+
+    /* =========================
+       Footer
+       ========================= */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--footer);
+    }
+
+    .footer-inner {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 34px 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+    }
+
+    .social-link img {
+      max-width: 34px;
+      max-height: 34px;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    /* =========================
+       Mobile
+       ========================= */
+    @media (max-width: 760px) {
+      body {
+        font-size: 17px;
+      }
+
+      .nav-wrap {
+        min-height: 58px;
+        padding: 0 20px;
+        position: relative;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 58px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 14px 20px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 13px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      main {
+        padding: 42px 20px 36px;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .profile-photo {
+        max-width: 220px;
+      }
+
+      .bio h1 {
+        font-size: 30px;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+        row-gap: 5px;
+      }
+
+      .timeline .date {
+        margin-top: 10px;
+        font-weight: 700;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
-    <a href="Publications.html" class="w3-bar-item w3-button w3-padding-large">Publications</a>
-    <a href="Conferences.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Conferences</a>
-    <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Projects</a>
-    <div class="w3-dropdown-hover w3-hide-large w3-hide-medium">
-      <button class="w3-padding-large w3-button" title="More">More</button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="Conferences.html" class="w3-bar-item w3-button">Conferences</a>
-        <a href="Projects.html" class="w3-bar-item w3-button">Projects</a>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="site-name" href="index.html">Chendi Han</a>
+
+      <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a class="active" href="index.html">Home</a>
+        <a href="Publications.html">Publications</a>
+        <a href="Conferences.html">Conferences</a>
+        <a href="Projects.html">Projects</a>
+        <a href="Personal.html">Personal</a>
+        <a href="Others.html">Others</a>
       </div>
-    </div>
-  </div>
-</div>
-  
-  <!-- The Self Section -->
-<div class="w3-container w3-content w3-padding-64" style="max-width:1000px">
+    </nav>
+  </header>
 
-  <div class="col-sm-3">
-    <img class="img-responsive" src="./picture/main/self_2022.jpg" alt=""><br>
-    <div style="font-size: 24px;"><b>Chendi Han, PhD</b></div><br>
-    <p><b>MRI Research Engineer</b><br>
-    <p>Cleveland Clinic<br>
-    Lou Ruvo Center for Brain Health<br>
-    888 W Bonneville Ave<br>
-    Las Vegas, Nevada, USA <br>
-    <a href="./file/other/CV_Chendi Han.pdf" target="_blank">My Resume</a><br>
-    </p>
-  </div>
+  <main>
 
-  <div class="col-sm-1">
-  </div>
+    <!-- Top profile section -->
+    <section class="profile-grid">
 
-  <div class="col-sm-8">
-    <div style="font-size: 24px;"><p class="p1"><br /><b>About:</b></p></div>
-    <div style="font-size: 18px;">
-      <p class="p1">Chendi Han received BS degree in Physics from <a class="p1" href="https://cycollege.lzu.edu.cn/" target="_blank">Cuiying Honors College</a>, <a class="p1" href="https://www.lzu.edu.cn/" target="_blank"><b>Lanzhou University</b></a> in 2017. 
-        He started his research in Quantum chaos in Professor <a class="p1" href="https://icpcs.lzu.edu.cn/lhuang/indexE.html" target="_blank"><i>Liang Huang</i></a>'s group. He received his MS and PhD degrees in 
-        Electrical Engineering from <a class="p1" href="https://ecee.engineering.asu.edu/" target="_blank">School of Electrical, Computer and Energy Engineering</a>, 
-        <a class="p1" href="https://www.asu.edu/" target="_blank"><b>Arizona State University</b></a> in 2019 and 2022 respectively. He wrote his PhD thesis on Graphene, Quantum chaos and Machine learning under Professor <a class="p1" href="http://chaos1.la.asu.edu/~yclai/" target="_blank"><i>Ying-Cheng Lai</i></a>.
-        In 2023, he joined <a class="p1" href="https://my.clevelandclinic.org/" target="_blank"><b>Cleveland Clinic</b></a> as an MRI research engineer. His current research interests are <b>fMRI data analysis</b>, 
-        <b>Optimization</b>, <b>Machine learning</b>, 
-        and <b>Clinical application to Alzheimer's and Parkinson's</b>. He published more than 10 papers in peer-reviewed journals.
-    </p>
-    </div>
+      <!-- Left: photo and compact information -->
+      <aside class="profile-card">
+        <img
+          class="profile-photo"
+          src="./picture/main/self_2022.jpg"
+          alt="Chendi Han"
+        >
 
-    <div style="font-size: 24px;"><p class="p1"><br /><b>Education:</b></p></div>
-      <div style="font-size: 18px;">
-        <p class="p1"> 09/2013 - 06/2017: &nbsp BS, Physics, Lanzhou University</p>
-        <p class="p1"> 08/2017 - 12/2019: &nbsp MS, Electrical Engineering, Arizona State University</p>
-        <p class="p1"> 04/2018 - 12/2022: &nbsp PhD, Electrical Engineering, Arizona State University</p>
-    </div>
-    <div style="font-size: 24px;"><p class="p1"><br /><b>Academic Positions:</b></p></div>
-      <div style="font-size: 18px;">
-        <p class="p1"> 07/2017 - 12/2022: &nbsp Research Assistant, Arizona State University</p>
-        <p class="p1"> 07/2023 - Present: &nbsp MRI Research Engineer, Cleveland Clinic</p>
-    </div>
+        <div class="profile-name">Chendi Han, PhD</div>
+        <div class="profile-title">MRI Research Engineer</div>
+        <div class="profile-affiliation">Cleveland Clinic</div>
+        <div class="profile-affiliation">Lou Ruvo Center for Brain Health</div>
+        <div class="profile-location">Las Vegas, Nevada, USA</div>
 
-    <div style="font-size: 24px;">
-      <p class="p1"><br><b>Grants &amp; Funding:</b></p>
-    </div>
-    
-    <div style="font-size: 18px;">
-      <p class="p1" style="margin: 0 0 10px 0;">
-        <b>Chendi Han (Sole PI)</b>, ``Detect functional MRI (fMRI) activation in aMCI using KCCA: an application to episodic memory and olfaction,''
-        <i>Cleveland Clinic Keep Memory Alive Young Investigator Award</i>, <b>$225,000 total</b>, IF111962 (09/2025 - 09/2028)
+        <div class="profile-links">
+          <a href="./file/main/CV_Chendi Han.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
+        </div>
+      </aside>
+
+      <!-- Right: biography -->
+      <div class="bio">
+        <h1>About</h1>
+
+        <p>
+          Chendi Han received his BS degree in Physics from
+          <a href="https://cycollege.lzu.edu.cn/" target="_blank" rel="noopener">Cuiying Honors College</a>,
+          <a href="https://www.lzu.edu.cn/" target="_blank" rel="noopener"><strong>Lanzhou University</strong></a>,
+          in 2017. He began his research in quantum chaos in Professor
+          <a href="https://icpcs.lzu.edu.cn/lhuang/indexE.html" target="_blank" rel="noopener">Liang Huang</a>'s group.
+        </p>
+
+        <p>
+          He received his MS and PhD degrees in Electrical Engineering from the
+          <a href="https://ecee.engineering.asu.edu/" target="_blank" rel="noopener">School of Electrical, Computer and Energy Engineering</a>,
+          <a href="https://www.asu.edu/" target="_blank" rel="noopener"><strong>Arizona State University</strong></a>,
+          in 2019 and 2022, respectively. His PhD research on graphene, quantum chaos, and machine learning was conducted under Professor
+          <a href="http://chaos1.la.asu.edu/~yclai/" target="_blank" rel="noopener">Ying-Cheng Lai</a>.
+        </p>
+
+        <p>
+          In 2023, he joined
+          <a href="https://my.clevelandclinic.org/" target="_blank" rel="noopener"><strong>Cleveland Clinic</strong></a>
+          as an MRI Research Engineer. His current work focuses on computational and machine-learning methods for functional MRI and their applications to neurological disease.
+        </p>
+
+        <div class="research-interests">
+          <strong>Research interests</strong>
+          <p>
+            His current research interests are fMRI data analysis, optimization, machine learning,
+            and clinical applications to Alzheimer's disease and Parkinson's disease.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-width sections -->
+    <section class="section">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="date">09/2013 – 06/2017</div>
+        <p class="entry"><strong>BS, Physics</strong>, Lanzhou University</p>
+
+        <div class="date">08/2017 – 12/2019</div>
+        <p class="entry"><strong>MS, Electrical Engineering</strong>, Arizona State University</p>
+
+        <div class="date">04/2018 – 12/2022</div>
+        <p class="entry"><strong>PhD, Electrical Engineering</strong>, Arizona State University</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Academic Positions</h2>
+      <div class="timeline">
+        <div class="date">07/2017 – 12/2022</div>
+        <p class="entry"><strong>Research Assistant</strong>, Arizona State University</p>
+
+        <div class="date">07/2023 – Present</div>
+        <p class="entry"><strong>MRI Research Engineer</strong>, Cleveland Clinic</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Grants &amp; Funding</h2>
+      <p class="grant-item">
+        <strong>Chendi Han (Sole PI)</strong>,
+        “Detect functional MRI (fMRI) activation in aMCI using KCCA: an application to episodic memory and olfaction,”
+        <em>Cleveland Clinic Keep Memory Alive Young Investigator Award</em>,
+        <strong>$225,000 total</strong>, IF111962 (09/2025 – 09/2028).
       </p>
-    </div>
+    </section>
 
-    <div style="font-size: 24px;"><p class="p1"><br /><b>Awards:</b></p></div>
-      <div style="font-size: 18px;">
-        <p class="p1">
-          2017:&nbsp;&nbsp;Outstanding Graduate Student, Lanzhou University.
-          <span style="font-size: 16px;">(awarded to the top 10% of graduate students)</span>
-        </p>
-      
-        <p class="p1">
-          2022:&nbsp;&nbsp;Dean's Dissertation Award, Arizona State University.
-          <span style="font-size: 16px;">(awarded to the top 5% of PhD graduates each year)</span>
+    <section class="section">
+      <h2>Awards</h2>
+      <div class="timeline">
+
+        <div class="date">2017</div>
+        <p class="entry">
+          <strong>Outstanding Graduate Student</strong>, Lanzhou University.
+          <span class="award-note">Awarded to approximately the top 10% of graduate students.</span>
         </p>
 
-        <p class="p1">
-          2026:&nbsp;&nbsp;Emerging Science Award Program, Cleveland Clinic. <a href="./file/other/New_thinking_2026_summer.pdf" target="_blank">New Thinking Magazine</a>.
-          <span style="font-size: 16px;">(Cleveland Clinic’s Emerging Science Award Program is intended to help investigators build research skills and preliminary data to successfully compete for significant external research funding in the future. )</span>
+        <div class="date">2022</div>
+        <p class="entry">
+          <strong>Dean's Dissertation Award</strong>, Arizona State University.
+          <span class="award-note">Awarded to approximately the top 5% of PhD graduates.</span>
         </p>
+
+        <div class="date">2026</div>
+        <p class="entry">
+          <strong>Emerging Science Award Program</strong>, Cleveland Clinic.
+          <a href="./file/main/New_thinking_2026_summer.pdf" target="_blank" rel="noopener">New Thinking Magazine</a>.
+          <span class="award-note">Supports investigators in building research skills and preliminary data for future external funding.</span>
+        </p>
+
       </div>
+    </section>
 
-    <div style="font-size: 24px;"><p class="p1"><br /><b>Academic Service:</b></p></div>
-      <div style="font-size: 18px;">
-        <p class="p1">Referee of <u>Physical Review journals</u> (Physical Review A, B, E, Research, and X Intelligence), <u>Journal of Magnetic Resonance Imaging</u> (<b>JMRI</b>) and <u>Medical Image Computing and Computer Assisted Intervention</u> (<b>MICCAI</b>). </p>
+    <section class="section">
+      <h2>Academic Service</h2>
+      <p class="service-heading">Referee for</p>
+      <ul class="service-list">
+        <li><em>International Society for Magnetic Resonance in Medicine</em> (ISMRM)</li>
+        <li><em>Journal of Magnetic Resonance Imaging</em> (JMRI)</li>
+        <li><em>Medical Image Computing and Computer Assisted Intervention</em> (MICCAI)</li>
+        <li><em>Organization for Human Brain Mapping</em> (OHBM)</li>
+        <li><em>Physical Review</em> journals (Physical Review A, B, E, Research, and X Intelligence)</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="social-link" href="https://scholar.google.com/citations?user=zkBPa6AAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+        <img src="./picture/main/google-scholar-logo.png" alt="Google Scholar">
+      </a>
+
+      <a class="social-link" href="https://www.linkedin.com/in/chendi-han-5498b1201/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="./picture/main/LinkedIn-logo.png" alt="LinkedIn">
+      </a>
+
+      <a class="social-link" href="https://github.com/hanchendi" target="_blank" rel="noopener" aria-label="GitHub">
+        <img src="./picture/main/Github-logo.png" alt="GitHub">
+      </a>
     </div>
-    
-  </div>
-</div>
-  
-<!-- End Page Content -->
-</div>
+  </footer>
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-light-grey w3-xlarge">
-  <a href="https://scholar.google.com/citations?user=zkBPa6AAAAAJ&hl=en" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/google-scholar-logo.png" width="40" height="40">
-  </a>
-  <a href="https://www.linkedin.com/in/chendi-han-5498b1201/" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/LinkedIn-logo.png" width="40" height="40">
-  </a>
-  <a href="https://github.com/hanchendi" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/Github-logo.png" width="40" height="40">
-  </a>
-</footer>
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
 
-<script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+    menuButton.addEventListener('click', function () {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  </script>
 
 </body>
 </html>
-
-
-
-

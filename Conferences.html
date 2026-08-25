@@ -1,339 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Chendi's Homepage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./format/w3.css">
-<link rel="stylesheet" href="./format/css.css?family=Lato">
-<link rel="stylesheet" href="./format/font-awesome.min.css">
-<style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conference presentations by Chendi Han">
+  <title>Conferences | Chendi Han</title>
 
-.p1 {
-  font-family: "Times New Roman", Times, serif;
-}
+  <style>
+    :root {
+      --page-width: 1080px;
+      --text: #222;
+      --muted: #666;
+      --border: #e5e5e5;
+      --link: #1f5f99;
+      --background: #ffffff;
+      --footer: #f7f7f7;
+    }
 
-.p2 {
-  font-family: Arial, Helvetica, sans-serif;
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
 
-.p3 {
-  font-family: "Lucida Console", "Courier New", monospace;
-}
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.55;
+    }
 
-dl {
-  display: grid;
-  grid-template-columns: max-content auto;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 18px
-}
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
 
-dt {
-  grid-column-start: 1;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 18px
-}
+    a:hover { text-decoration: underline; }
 
-dd {
-  grid-column-start: 2;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 18px
-}
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
 
-</style>
+    .nav-wrap {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      min-height: 64px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .site-name {
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .site-name:hover { text-decoration: none; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+
+    .nav-links a { color: #333; }
+    .nav-links a.active { color: #000; font-weight: 700; }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 4px 0 4px 12px;
+    }
+
+    /* Conferences */
+    main {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 58px 28px 52px;
+    }
+
+    .page-title {
+      margin: 0 0 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    .year-nav {
+      margin: 0 0 34px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .year-section {
+      padding: 24px 0 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .year-section h2 {
+      margin: 0 0 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .conference-item {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      column-gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    .conference-number {
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.55;
+      text-align: right;
+    }
+
+    .conference-text {
+      min-width: 0;
+      font-size: 18px;
+    }
+
+    .conference-text a { white-space: nowrap; }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--footer);
+    }
+
+    .footer-inner {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 34px 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+    }
+
+    .social-link img {
+      max-width: 34px;
+      max-height: 34px;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 760px) {
+      body { font-size: 17px; }
+
+      .nav-wrap {
+        min-height: 58px;
+        padding: 0 20px;
+        position: relative;
+      }
+
+      .menu-button { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 58px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 14px 20px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 13px;
+      }
+
+      .nav-links.open { display: flex; }
+
+      main { padding: 42px 20px 36px; }
+      .page-title { font-size: 30px; }
+
+      .conference-item {
+        grid-template-columns: 34px minmax(0, 1fr);
+        column-gap: 8px;
+      }
+
+      .conference-number,
+      .conference-text { font-size: 17px; }
+    }
+  </style>
 </head>
+
 <body>
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
-    <a href="Publications.html" class="w3-bar-item w3-button w3-padding-large">Publications</a>
-    <a href="Conferences.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Conferences</a>
-    <a href="Projects.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Projects</a>
-    <div class="w3-dropdown-hover w3-hide-large w3-hide-medium">
-      <button class="w3-padding-large w3-button" title="More">More</button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="Conferences.html" class="w3-bar-item w3-button">Conferences</a>
-        <a href="Projects.html" class="w3-bar-item w3-button">Projects</a>
-      </div>
-    </div>
-  </div>
-</div>
-  
-    <!-- The Band Section -->
-  <div class="w3-container w3-content w3-padding-64" style="max-width:1000px" id="band">
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="site-name" href="index.html">Chendi Han</a>
 
-    <div style="font-size: 24px;">
-      <a class="p1" href="#y2018">2018</a><a class="p1">, </a>
-      <a class="p1" href="#y2024">2024</a><a class="p1">, </a>
-      <a class="p1" href="#y2025">2025</a><a class="p1">, </a>
-      <a class="p1" href="#y2026">2026</a><a class="p1">. </a>
-    </div>
-    
-    <!-- 2018 -->
-    <div>
-      <div style="font-size: 24px;" id="y2018">
-        <br />
-        <p class="p1">2018</p>
-      </div>
+      <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+      </button>
 
-      <dl>
-        <dt>1</dt>
-        <dd>
-          <b>Chen-Di Han</b>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="Publications.html">Publications</a>
+        <a class="active" href="Conferences.html">Conferences</a>
+        <a href="Projects.html">Projects</a>
+        <a href="Personal.html">Personal</a>
+        <a href="Others.html">Others</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Conferences</h1>
+
+    <div class="year-nav" aria-label="Conference years">
+      <a href="#y2018">2018</a> · <a href="#y2024">2024</a> · <a href="#y2025">2025</a> · <a href="#y2026">2026</a>
+    </div>
+
+      <section class="year-section" id="y2018">
+        <h2>2018</h2>
+        <div class="conference-item">
+          <div class="conference-number">1.</div>
+          <div class="conference-text"><b>Chen-Di Han</b>
           ``Out-of-Time-order Correlator in billiard systems,'' 
           <i>Advanced device packaging</i> (2018).
           <i>Meeting Presentation, First placed student award, </i>
-          <a class="p1" href="./file/conference/2018_ADP.pdf" target="_blank">Presentation</a><a class="p1">. </a>
-        </dd>
-      </dl>
-    </div>
-
-    <!-- 2024 -->
-    <div>
-      <div style="font-size: 24px;" id="y2024">
-        <br />
-        <p class="p1">2024</p>
-      </div>
-
-      <dl>
-        <dt>2</dt>
-        <dd>
-          <b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes 
+<a href="./file/conference/2018_ADP.pdf" rel="noopener" target="_blank">Presentation</a><a>. </a></div>
+        </div>
+      </section>
+      <section class="year-section" id="y2024">
+        <h2>2024</h2>
+        <div class="conference-item">
+          <div class="conference-number">2.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes 
           ``Nonlinear kernel-based fMRI activation detection,'' 
           <i>International Society for Magnetic Resonance in Medicine (ISMRM)</i> (2024).
           <i>Digital Poster, </i>
-          <a class="p1" href="./file/conference/2024_ISMRM.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2024_ISMRM_presentation1.pdf" target="_blank">Presentation 1</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2024_ISMRM_presentation2.pdf" target="_blank">Presentation 2</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>3</dt>
-        <dd>
-          <b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes 
+<a href="./file/conference/2024_ISMRM.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2024_ISMRM_presentation1.pdf" rel="noopener" target="_blank">Presentation 1</a><a>. </a>
+<a href="./file/conference/2024_ISMRM_presentation2.pdf" rel="noopener" target="_blank">Presentation 2</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">3.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes 
           ``Nonlinear kernel-based fMRI activation detection,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2024).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2024_OHBM.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2024_OHBM_poster.pdf" target="_blank">Poster</a><a class="p1">. </a>
-        </dd>
-      </dl>
-    </div>
-
-    <!-- 2025 -->
-    <div>
-      <div style="font-size: 24px;" id="y2025">
-        <br />
-        <p class="p1">2025</p>
-      </div>
-
-      <dl>
-        <dt>4</dt>
-        <dd>
-          <b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Rajesh Nandy, and Dietmar Cordes 
+<a href="./file/conference/2024_OHBM.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2024_OHBM_poster.pdf" rel="noopener" target="_blank">Poster</a><a>. </a></div>
+        </div>
+      </section>
+      <section class="year-section" id="y2025">
+        <h2>2025</h2>
+        <div class="conference-item">
+          <div class="conference-number">4.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Rajesh Nandy, and Dietmar Cordes 
           ``Class-Aware Hidden Markov Model for simultaneous functional connectivity estimation and classification,'' 
           <i>International Society for Magnetic Resonance in Medicine (ISMRM)</i> (2025).
           <i>Digital Poster, </i>
-          <a class="p1" href="./file/conference/2025_ISMRM1.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2025_ISMRM1_presentation_word.pdf" target="_blank">Presentation 1</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2025_ISMRM1_presentation_ppt.pdf" target="_blank">Presentation 2</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>5</dt>
-        <dd>
-          <b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes 
+<a href="./file/conference/2025_ISMRM1.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2025_ISMRM1_presentation_word.pdf" rel="noopener" target="_blank">Presentation 1</a><a>. </a>
+<a href="./file/conference/2025_ISMRM1_presentation_ppt.pdf" rel="noopener" target="_blank">Presentation 2</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">5.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes 
           ``A Self-Supervised voxel shuffling framework for Kernel-Based fMRI activation detection,'' 
           <i>International Society for Magnetic Resonance in Medicine (ISMRM)</i> (2025).
           <i>Digital Poster, </i>
-          <a class="p1" href="./file/conference/2025_ISMRM2.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2025_ISMRM2_presentation_word.pdf" target="_blank">Presentation 1</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2025_ISMRM2_presentation_ppt.pdf" target="_blank">Presentation 2</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>6</dt>
-        <dd>
-          <b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Rajesh Nandy, and Dietmar Cordes 
+<a href="./file/conference/2025_ISMRM2.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2025_ISMRM2_presentation_word.pdf" rel="noopener" target="_blank">Presentation 1</a><a>. </a>
+<a href="./file/conference/2025_ISMRM2_presentation_ppt.pdf" rel="noopener" target="_blank">Presentation 2</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">6.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Rajesh Nandy, and Dietmar Cordes 
           ``Class-Aware Hidden Markov Model for functional connectivity estimation and classification,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2025).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2025_OHBM1.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2025_OHBM1_poster.pdf" target="_blank">Poster</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>7</dt>
-        <dd>
-          <b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes 
+<a href="./file/conference/2025_OHBM1.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2025_OHBM1_poster.pdf" rel="noopener" target="_blank">Poster</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">7.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Zhengshi Yang, Xiaowei Zhuang, and Dietmar Cordes 
           ``A Self-Supervised voxel shuffling framework for Kernel-Based fMRI activation detection,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2025).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2025_OHBM2.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2025_OHBM2_poster.pdf" target="_blank">Poster</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>8</dt>
-        <dd>
-          Pavithran Pattiam Giriprakash, Filippo Cieri, Xiaowei Zhuang, Zhengshi Yang, <b>Chendi Han</b>, Dietmar Cordes
+<a href="./file/conference/2025_OHBM2.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2025_OHBM2_poster.pdf" rel="noopener" target="_blank">Poster</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">8.</div>
+          <div class="conference-text">Pavithran Pattiam Giriprakash, Filippo Cieri, Xiaowei Zhuang, Zhengshi Yang, <b>Chendi Han</b>, Dietmar Cordes
           ``Phase synchronization between task-positive and task-negative brain networks using Hilbert Huang Transform for Alzheimer's disease,'' 
           <i>International Society for Magnetic Resonance in Medicine (ISMRM)</i> (2025).
           <i>Digital Poster, </i>
-          <a class="p1" href="./file/conference/2025_ISMRM3.pdf" target="_blank">Paper</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-
-    </div>
-
-    <!-- 2026 -->
-    <div>
-      <div style="font-size: 24px;" id="y2026">
-        <br />
-        <p class="p1">2026</p>
-      </div>
-
-      <dl>
-        <dt>9</dt>
-        <dd>
-          <b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, Katherine Koenig, Mark Lowe and Dietmar Cordes 
+<a href="./file/conference/2025_ISMRM3.pdf" rel="noopener" target="_blank">Paper</a><a>. </a></div>
+        </div>
+      </section>
+      <section class="year-section" id="y2026">
+        <h2>2026</h2>
+        <div class="conference-item">
+          <div class="conference-number">9.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, Katherine Koenig, Mark Lowe and Dietmar Cordes 
           ``Estimating dynamic functional connectivity using Hidden Markov Model with low-rank approximation,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2026).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2026_OHBM1.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2026_OHBM1_poster.pdf" target="_blank">Poster</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>10</dt>
-        <dd>
-          <b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, and Dietmar Cordes 
+<a href="./file/conference/2026_OHBM1.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2026_OHBM1_poster.pdf" rel="noopener" target="_blank">Poster</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">10.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, and Dietmar Cordes 
           ``Predicting PET amyloid in prodromal Alzheimer's disease using Weighted Hidden Markov Model,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2026).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2026_OHBM2.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2026_OHBM2_poster.pdf" target="_blank">Poster</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>11</dt>
-        <dd>
-          <b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, Katherine Koenig, Mark Lowe and Dietmar Cordes 
+<a href="./file/conference/2026_OHBM2.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2026_OHBM2_poster.pdf" rel="noopener" target="_blank">Poster</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">11.</div>
+          <div class="conference-text"><b>Chendi Han</b>, Pavithran Pattiam Giriprakash, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, Katherine Koenig, Mark Lowe and Dietmar Cordes 
           ``Information-Guided dynamic functional connectivity for task phase prediction in fMRI,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2026).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2026_OHBM3.pdf" target="_blank">Paper</a><a class="p1">. </a>
-          <a class="p1" href="./file/conference/2026_OHBM3_poster.pdf" target="_blank">Poster</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>12</dt>
-        <dd>
-          Pavithran Pattiam Giriprakash, <b>Chendi Han</b>, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, Katherine Koenig, Mark Lowe and Dietmar Cordes 
+<a href="./file/conference/2026_OHBM3.pdf" rel="noopener" target="_blank">Paper</a><a>. </a>
+<a href="./file/conference/2026_OHBM3_poster.pdf" rel="noopener" target="_blank">Poster</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">12.</div>
+          <div class="conference-text">Pavithran Pattiam Giriprakash, <b>Chendi Han</b>, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, Katherine Koenig, Mark Lowe and Dietmar Cordes 
           ``Gaussian mixture based Hidden Markov Models for analysis of task fMRI dynamics,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2026).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2026_OHBM4.pdf" target="_blank">Paper</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>13</dt>
-        <dd>
-          Pavithran Pattiam Giriprakash, <b>Chendi Han</b>, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, Katherine Koenig, Mark Lowe and Dietmar Cordes 
+<a href="./file/conference/2026_OHBM4.pdf" rel="noopener" target="_blank">Paper</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">13.</div>
+          <div class="conference-text">Pavithran Pattiam Giriprakash, <b>Chendi Han</b>, Xiaowei Zhuang, Zhengshi Yang, Rajesh Nandy, Katherine Koenig, Mark Lowe and Dietmar Cordes 
           ``Uncovering fMRI task structure from brain-state dynamics using Hidden Markov Models,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2026).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2026_OHBM5.pdf" target="_blank">Paper</a><a class="p1">. </a>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>14</dt>
-        <dd>
-          Rajesh Nandy, <b>Chendi Han</b> and Dietmar Cordes 
+<a href="./file/conference/2026_OHBM5.pdf" rel="noopener" target="_blank">Paper</a><a>. </a></div>
+        </div>
+        <div class="conference-item">
+          <div class="conference-number">14.</div>
+          <div class="conference-text">Rajesh Nandy, <b>Chendi Han</b> and Dietmar Cordes 
           ``From brain states to amyloid burden: Hidden Markov models of rs-fMRI predict subject-level PET SUVR,'' 
           <i>Organization for Human Brain Mapping (OHBM)</i> (2026).
           <i>Poster Presentation, </i>
-          <a class="p1" href="./file/conference/2026_OHBM6.pdf" target="_blank">Paper</a><a class="p1">. </a>
-        </dd>
-      </dl>
+<a href="./file/conference/2026_OHBM6.pdf" rel="noopener" target="_blank">Paper</a><a>. </a></div>
+        </div>
+      </section>
+  </main>
 
-
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="social-link" href="https://scholar.google.com/citations?user=zkBPa6AAAAAJ&hl=en"
+         target="_blank" rel="noopener" aria-label="Google Scholar">
+        <img src="./picture/main/google-scholar-logo.png" alt="Google Scholar">
+      </a>
+      <a class="social-link" href="https://www.linkedin.com/in/chendi-han-5498b1201/"
+         target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="./picture/main/LinkedIn-logo.png" alt="LinkedIn">
+      </a>
+      <a class="social-link" href="https://github.com/hanchendi"
+         target="_blank" rel="noopener" aria-label="GitHub">
+        <img src="./picture/main/Github-logo.png" alt="GitHub">
+      </a>
     </div>
+  </footer>
 
-
-  </div>
-    
-  <!-- End Page Content -->
-  </div>
-  
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-light-grey w3-xlarge">
-  <a href="https://scholar.google.com/citations?user=zkBPa6AAAAAJ&hl=en" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/google-scholar-logo.png" width="40" height="40">
-  </a>
-  <a href="https://www.linkedin.com/in/chendi-han-5498b1201/" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/LinkedIn-logo.png" width="40" height="40">
-  </a>
-  <a href="https://github.com/hanchendi" target="_blank" style="text-decoration:none">
-    <img src="./picture/main/Github-logo.png" width="40" height="40">
-  </a>
-</footer>
-  
   <script>
-  // Automatic Slideshow - change image every 4 seconds
-  var myIndex = 0;
-  carousel();
-  
-  function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 4000);    
-  }
-  
-  // Used to toggle the menu on small screens when clicking on the menu button
-  function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-      x.className += " w3-show";
-    } else { 
-      x.className = x.className.replace(" w3-show", "");
-    }
-  }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  var modal = document.getElementById('ticketModal');
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
   </script>
-  
-  </body>
-  </html>
-
-
-
-
-
+</body>
+</html>
